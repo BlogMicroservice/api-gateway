@@ -6,8 +6,8 @@
   "scripts": {
     "build": "tsc",
     "start": "node dist/server.js",
-    "dev": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/server.ts",
-    "lint": "eslint 'src/**/*.ts'"
+    "dev": "nodemon --watch src --ext ts --exec ./node_modules/.bin/ts-node src/server.ts",
+    "lint": "eslint \"src/**/*.ts\""
   },
   "repository": {
     "type": "git",
@@ -22,7 +22,10 @@
   },
   "homepage": "https://github.com/BlogMicroservice/api-gateway#readme",
   "devDependencies": {
+    "@eslint/js": "^9.26.0",
+    "@types/cors": "^2.8.17",
     "@types/express": "^5.0.1",
+    "@types/morgan": "^1.9.9",
     "@types/node": "^22.15.3",
     "dotenv": "^16.5.0",
     "eslint": "^9.26.0",
@@ -32,6 +35,16 @@
     "npm": "^11.3.0",
     "prettier": "^3.5.3",
     "ts-node": "^10.9.2",
-    "typescript": "^5.8.3"
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.31.1"
+  },
+  "dependencies": {
+    "@react-oauth/google": "^0.12.2",
+    "api-gateway": "file:",
+    "body-parser": "^2.2.0",
+    "cors": "^2.8.5",
+    "express-rate-limit": "^7.5.0",
+    "http-proxy-middleware": "^3.0.5",
+    "morgan": "^1.10.0"
   }
 }
