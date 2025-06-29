@@ -23,8 +23,10 @@
   "homepage": "https://github.com/BlogMicroservice/api-gateway#readme",
   "devDependencies": {
     "@eslint/js": "^9.26.0",
+    "@types/cookie-parser": "^1.4.9",
     "@types/cors": "^2.8.17",
     "@types/express": "^5.0.1",
+    "@types/jsonwebtoken": "^9.0.10",
     "@types/morgan": "^1.9.9",
     "@types/node": "^22.15.3",
     "dotenv": "^16.5.0",
@@ -42,9 +44,11 @@
     "@react-oauth/google": "^0.12.2",
     "api-gateway": "file:",
     "body-parser": "^2.2.0",
+    "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
     "express-rate-limit": "^7.5.0",
     "http-proxy-middleware": "^3.0.5",
+    "jsonwebtoken": "^9.0.2",
     "morgan": "^1.10.0"
   }
 }

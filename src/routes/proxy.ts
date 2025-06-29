@@ -5,6 +5,7 @@ import bodyParser from 'body-parser';
 const TIMEOUT = 30 * 60 * 1000;
 const jsonBodyParser = bodyParser.json();
 const urlencodedBodyParser = bodyParser.urlencoded({ extended: true });
+
 const createProxy = (target: string) => {
   return [
     jsonBodyParser,
@@ -15,7 +16,7 @@ const createProxy = (target: string) => {
       proxyTimeout: TIMEOUT,
       on: {
         proxyReq: fixRequestBody,
-        proxyRes: (proxyRes, req,res) => {
+        proxyRes: (proxyRes, req, res) => {
           const cookies = proxyRes.headers['set-cookie'];
           if (cookies) {
             res.setHeader('Set-Cookie', cookies); // forward cookies to client
@@ -33,7 +34,16 @@ const createProxy = (target: string) => {
   ];
 };
 
+// export const proxyRoute = {
+//   '/auth': createProxy(services.auth),
+//   '/user': createProxy(services.user),
+// };
+
 export const proxyRoute = {
-  '/auth': createProxy(services.auth),
-  '/user': createProxy(services.user),
+  '/public/auth': createProxy(services.auth),
+  '/private/auth': createProxy(services.auth),
+  '/public/user': createProxy(services.user),
+  '/private/user': createProxy(services.user),
+  '/public/content': createProxy(services.content),
+  '/private/content': createProxy(services.content),
 };
